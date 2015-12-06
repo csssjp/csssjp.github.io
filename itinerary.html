@@ -263,8 +263,8 @@ input[type='text'], input:not([type]), textarea {
 
 
 <!--行程預覽區塊-->
-<div id="cs_float_itinerary_block" style="background-color: #F5DA81; position: fixed; top: 4em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; overflow-y: auto; max-height: 80%;">
-    <span style="font-size:26px;"><strong><span>行程費用：</span><span id="cs_price_label" style="color:#FF0000;"> 0 </span>元(NTD/人)    &nbsp;&nbsp;&nbsp;</strong></span>
+<div id="cs_float_itinerary_block" style="background-color: #9FDEEF; position: fixed; top: 4em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; overflow-y: auto; max-height: 80%;">
+    <span style="font-size:26px; color:#00A2CF;"><strong><span>行程費用：</span><span id="cs_price_label" style="color:#BC6596;"> 0 </span>元(NTD/人)    &nbsp;&nbsp;&nbsp;</strong></span>
     <div id="cs_rental_price_block" align="left" style="font-size:15px; display: none;"><strong><span>&nbsp;裝備租用：</span><span id="cs_rental_price_label" > 0 </span>元(NTD/人)</strong></div>
     <div><strong><span style="font-size:10px;">&nbsp;</span></strong></div>
     <div id="cs_itinerary_block"></div>
@@ -1923,13 +1923,13 @@ input[type='text'], input:not([type]), textarea {
     // Create a div block represent a itinerary date
     function createDayDiv(day, date) {
         var dayDiv = document.createElement("div");
-        var labelColor = "#58ACFA";
+        var labelColor = "#00A2CF";
         var labelTextColor = "#FFFFFF";
-        var titleColor = "#F7F2E0";
+        var titleColor = "#F0F0F0";
         var titleTextColor = labelColor;
         
         
-        dayDiv.style.backgroundColor = "#F5ECCE";
+        dayDiv.style.backgroundColor = "#FFFFFF";
         dayDiv.style.marginTop = "5px";
         
         var table = document.createElement("table");
@@ -1942,7 +1942,7 @@ input[type='text'], input:not([type]), textarea {
         td1.style.font = "bold 15px arial,serif";
         td1.style.color = labelTextColor;
         var td2 = document.createElement("td");
-        td2.style.textAlign = "center";
+        td2.style.textAlign = "left";
         td2.style.font = "bold 20px arial,serif";
         td2.style.backgroundColor = titleColor;
         td2.style.color = titleTextColor;
@@ -1970,72 +1970,6 @@ input[type='text'], input:not([type]), textarea {
         return dayDiv;
     }
 
-    function createDayDiv2(day, date, accommodation, ticket, skiClass) {
-        var dayDiv = document.createElement("div");
-        var labelColor = "#58ACFA";
-        var labelTextColor = "#FFFFFF";
-        var titleColor = "#F7F2E0";
-        var titleTextColor = labelColor;
-        
-        
-        dayDiv.style.backgroundColor = "#F5ECCE";
-        dayDiv.style.marginTop = "5px";
-        
-        var table = document.createElement("table");
-        table.style.width = "100%";
-        var tr = document.createElement("tr");
-        var td1 = document.createElement("td");
-        td1.style.textAlign = "center";
-        td1.style.backgroundColor = labelColor;
-        td1.style.width = "50px";
-        td1.style.font = "bold 15px arial,serif";
-        td1.style.color = labelTextColor;
-        var td2 = document.createElement("td");
-        td2.style.textAlign = "center";
-        td2.style.font = "bold 20px arial,serif";
-        td2.style.backgroundColor = titleColor;
-        td2.style.color = titleTextColor;
-        
-        
-        td1.appendChild(document.createTextNode(day));
-        td2.appendChild(document.createTextNode(date));
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        table.appendChild(tr);
-        
-        tr = document.createElement("tr");
-        td1 = document.createElement("td");
-        td1.style.backgroundColor = labelColor;
-        td2 = document.createElement("td");
-        td2.appendChild(accommodation);
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        table.appendChild(tr);
-        
-        tr = document.createElement("tr");
-        td1 = document.createElement("td");
-        td1.style.backgroundColor = labelColor;
-        td2 = document.createElement("td");
-        td2.appendChild(ticket);
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        table.appendChild(tr);
-        
-        tr = document.createElement("tr");
-        td1 = document.createElement("td");
-        td1.style.backgroundColor = labelColor;
-        td2 = document.createElement("td");
-        td2.appendChild(skiClass);
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        table.appendChild(tr);
-        
-       
-        
-        dayDiv.appendChild(table);
-        
-        return dayDiv;
-    }
 
     function createEditableItem(itemText, onClickFunc) {
         var div = document.createElement("div");
