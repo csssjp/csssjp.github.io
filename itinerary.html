@@ -297,7 +297,7 @@ input[type='text'], input:not([type]), textarea {
 
 
 <!--行程預覽區塊-->
-<div id="cs_float_itinerary_block" style="background-color: #9FDEEF; position: fixed; top: 4em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; overflow-y: auto; max-height: 80%;">
+<div id="cs_float_itinerary_block" style="background-color: #BBEBF9; position: fixed; top: 6em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; overflow-y: auto; max-height: 80%;">
     <span style="font-size:26px; color:#00A2CF;"><strong><span>行程費用：</span><span id="cs_price_label" style="color:#BC6596;"> 0 </span>元(NTD/人)    &nbsp;&nbsp;&nbsp;</strong></span>
     <div id="cs_rental_price_block" align="left" style="font-size:15px; display: none;"><strong><span>&nbsp;裝備租用：</span><span id="cs_rental_price_label" > 0 </span>元(NTD/人)</strong></div>
     <div><strong><span style="font-size:10px;">&nbsp;</span></strong></div>
@@ -597,6 +597,21 @@ input[type='text'], input:not([type]), textarea {
 <img  src="./resource/stepbar2.png" width="400" height="67"/>
 <!-- Customer Data -->
 <div class="ss-form-question errorbox-good" role="listitem">
+    <div dir="auto" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_1849297688"><div class="ss-q-title">性別
+    <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
+    <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+
+<ul class="ss-choices" role="radiogroup" aria-label="性別  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1265591320" value="&#20808;&#29983;" id="group_1265591320_1" role="radio" class="ss-q-radio" aria-label="&#20808;&#29983;" required="" aria-required="true"></span>
+    <span class="ss-choice-label">先生</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1265591320" value="&#22899;&#22763;" id="group_1265591320_2" role="radio" class="ss-q-radio" aria-label="&#22899;&#22763;" required="" aria-required="true"></span>
+    <span class="ss-choice-label">女士</span>
+</label></li></ul>
+<div class="error-message" id="1849297688_errorMessage"></div>
+<div class="required-message">這是必填問題</div></div></div></div>
+
+<div class="ss-form-question errorbox-good" role="listitem">
     <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
         <label class="ss-q-item-label" for="entry_284051328"><div class="ss-q-title">姓名
             <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
@@ -607,6 +622,8 @@ input[type='text'], input:not([type]), textarea {
             <div class="required-message">這是必填問題</div>
 </div></div></div>
 
+
+
 <div class="ss-form-question errorbox-good" role="listitem">
     <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
         <label class="ss-q-item-label" for="entry_1632565598"><div class="ss-q-title">Email
@@ -615,6 +632,17 @@ input[type='text'], input:not([type]), textarea {
         <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
         <input type="text" name="entry.1632565598" value="" class="ss-q-short" id="entry_1632565598" dir="auto" aria-label="Email  " aria-required="true" required="" title="">
             <div class="error-message" id="1993818043_errorMessage"></div>
+            <div class="required-message">這是必填問題</div>
+    </div></div></div>
+
+<div class="ss-form-question errorbox-good" role="listitem">
+    <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
+        <label class="ss-q-item-label" for="entry_344619099"><div class="ss-q-title">聯絡電話
+            <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
+            <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+        <input type="text" name="entry.344619099" value="" class="ss-q-short" id="entry_344619099" dir="auto" aria-label="聯絡電話  " aria-required="true" required="" title="">
+            <div class="error-message" id="1310528032_errorMessage"></div>
             <div class="required-message">這是必填問題</div>
     </div></div></div>
 <!-- Customer Data -->
@@ -637,8 +665,8 @@ input[type='text'], input:not([type]), textarea {
 <div id="cs_page3" style="display: none">
 
 <img  src="./resource/stepbar3.png" width="400" height="67"/>
-
-<div id="cs_order_content" style="background-color: #9FDEEF;  top: 4em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; ">
+<!--#9FDEEF-->
+<div id="cs_order_content" style="background-color: #BBEBF9;  top: 4em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; ">
 </div>
 
 <div class="ss-item ss-navigate"><table id="navigation-table"><tbody><tr><td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
@@ -1024,9 +1052,6 @@ input[type='text'], input:not([type]), textarea {
         updateAll();
     }
 
-    function resetBusOnClick() {
-        
-    }
 
     function page1ButtonOnClick() {
         cs_page1.style.display = "none";
@@ -1771,7 +1796,7 @@ input[type='text'], input:not([type]), textarea {
             if(itineraryItem.accommodation == 1 && i < 3) {
                 accomDiv = document.createTextNode("雪場住宿");
             } else if(itineraryItem.accommodation == 3){
-                accomDiv = createEditableItem("東京住宿", cancelTokyoButtonOnClick);
+                accomDiv = createEditableItem("東京住宿    ", cancelTokyoButtonOnClick);
             } else {
                 accomDiv = createEditableAccommodationItem(itineraryItem);
             }
@@ -1779,7 +1804,7 @@ input[type='text'], input:not([type]), textarea {
             // 雪票日
             var ticketDiv = document.createTextNode("");
             if(itineraryItem.liftTicket && i < 3) {
-                ticketDiv = createEditableItem("白馬岩岳纜車票", cancelLiftTicketButtonOnClick);
+                ticketDiv = createEditableItem("白馬岩岳纜車票   ", cancelLiftTicketButtonOnClick);
             }else if(i > 2 && itineraryItem.accommodation == 1){
                 ticketDiv = createEditableLiftTicketItem(itineraryItem);
             }
@@ -1788,7 +1813,7 @@ input[type='text'], input:not([type]), textarea {
             var classText = "";
             var classDiv = document.createTextNode(classText);
             if(itineraryItem.skiClass == 6 && i < 3) {
-                classText = "團體課程 4 小時";
+                classText = "團體課程 4 小時    ";
                 classDiv = createEditableItem(classText, cancelGroupClassButtonOnClick);
             }else if(i > 0 && itineraryItem.accommodation == 1) {
                 classDiv = createEditableClassItem(itineraryItem);
@@ -1857,11 +1882,6 @@ input[type='text'], input:not([type]), textarea {
             // 巴士
             var busDiv = document.createTextNode("");
             if(i == 0) {
-                //if(_itinerary.goWayBus && _itinerary.returnWayBus) {
-                //    busDiv = createEditableItem("去程巴士", goWayBusCancelOnClick);
-                //}else if(_itinerary.goWayBus){
-                //    busDiv = document.createTextNode("去程巴士");
-                //}
                 
                 if(_itinerary.goWayBus ) {
                     busDiv = createEditableItem("去程巴士", goWayBusCancelOnClick);
@@ -1874,13 +1894,6 @@ input[type='text'], input:not([type]), textarea {
             tmpDiv.appendChild(createDayDiv(dayText, dateText, busDiv, accomDiv, classDiv));
         }
         
-        
-        //var busDiv = document.createTextNode("回程巴士");
-        //if(_itinerary.returnWayBus && _itinerary.goWayBus) {
-        //    busDiv = createEditableItem("回程巴士", returnWayBusCancelOnClick);
-        //}else if(!_itinerary.returnWayBus) {
-        //    busDiv = document.createTextNode("");
-        //}
         
         var busDiv = document.createTextNode("");
         if(_itinerary.returnWayBus) {
