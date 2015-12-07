@@ -1146,7 +1146,9 @@ input[type='text'], input:not([type]), textarea {
             }
             
             // 單程巴士(交通加住宿)
-            if(!(this.goWayBus && this.returnWayBus)) {
+            if(!(this.goWayBus || this.returnWayBus)){
+                finalPrice = finalPrice - 3100;
+            }else if(!(this.goWayBus && this.returnWayBus)) {
                 finalPrice = finalPrice - cs_adjust_one_way_bus;
             }
             
@@ -1855,10 +1857,14 @@ input[type='text'], input:not([type]), textarea {
             // 巴士
             var busDiv = document.createTextNode("");
             if(i == 0) {
-                if(_itinerary.goWayBus && _itinerary.returnWayBus) {
+                //if(_itinerary.goWayBus && _itinerary.returnWayBus) {
+                //    busDiv = createEditableItem("去程巴士", goWayBusCancelOnClick);
+                //}else if(_itinerary.goWayBus){
+                //    busDiv = document.createTextNode("去程巴士");
+                //}
+                
+                if(_itinerary.goWayBus ) {
                     busDiv = createEditableItem("去程巴士", goWayBusCancelOnClick);
-                }else if(_itinerary.goWayBus){
-                    busDiv = document.createTextNode("去程巴士");
                 }
             }
             
@@ -1869,11 +1875,16 @@ input[type='text'], input:not([type]), textarea {
         }
         
         
-        var busDiv = document.createTextNode("回程巴士");
-        if(_itinerary.returnWayBus && _itinerary.goWayBus) {
+        //var busDiv = document.createTextNode("回程巴士");
+        //if(_itinerary.returnWayBus && _itinerary.goWayBus) {
+        //    busDiv = createEditableItem("回程巴士", returnWayBusCancelOnClick);
+        //}else if(!_itinerary.returnWayBus) {
+        //    busDiv = document.createTextNode("");
+        //}
+        
+        var busDiv = document.createTextNode("");
+        if(_itinerary.returnWayBus) {
             busDiv = createEditableItem("回程巴士", returnWayBusCancelOnClick);
-        }else if(!_itinerary.returnWayBus) {
-            busDiv = document.createTextNode("");
         }
         
         tmpDiv.appendChild(createDayDiv("第 " + (totalDays+1) + " 天", _itinerary.returnDate.simpleString(), busDiv, document.createTextNode(""), document.createTextNode("")));
@@ -2124,19 +2135,17 @@ input[type='text'], input:not([type]), textarea {
             newprice = 0;
         }
         var str = "" + parseInt(newprice);
-        if(str.length > 3) {
+        if(str.length > 2) {
             
-            var headStr = str.substring(0, str.length-3);
-            var tailStr = str.substring(str.length-3, str.length);
+            var headStr = str.substring(0, str.length-2);
+            var tailStr = str.substring(str.length-2, str.length);
             var tailPrice = parseInt(tailStr);
             
-            if(tailPrice > 900) {
+            if(tailPrice > 0) {
                 var headPrice = parseInt(headStr);
-                newprice = (headPrice+1)*1000;
+                newprice = (headPrice+1)*100;
             }else if(tailPrice == 0) {
-                newprice = parseInt(headStr + "000");
-            }else{
-                newprice = parseInt(headStr + "900");
+                newprice = parseInt(headStr + "00");
             }
         }
         
