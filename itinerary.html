@@ -246,6 +246,40 @@ input[type='text'], input:not([type]), textarea {
 
 </style>
 
+<script type="text/javascript">
+    /**
+     * @license
+     *
+     * H5F 1.1.1
+     * See https://github.com/ryanseddon/H5F/ for details.
+     *
+     * Copyright (c) 2013 Ryan Seddon
+     *
+     * Permission is hereby granted, free of charge, to any person
+     * obtaining a copy of this software and associated documentation
+     * files (the "Software"), to deal in the Software without
+     * restriction, including without limitation the rights to use,
+     * copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * copies of the Software, and to permit persons to whom the
+     * Software is furnished to do so, subject to the following
+     * conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+     * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+     * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+     * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+     * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+     * OTHER DEALINGS IN THE SOFTWARE.
+     */
+(function(e,t){"function"==typeof define&&define.amd?define(t):"object"==typeof module&&module.exports?module.exports=t():e.H5F=t()})(this,function(){var e,t,a,i,n,r,l,s,o,u,d,c,v,p,f,m,b,h,g,y,w,C,N,A,E,$,x=document,k=x.createElement("input"),q=/^[a-zA-Z0-9.!#$%&'*+-\/=?\^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,M=/[a-z][\-\.+a-z]*:\/\//i,L=/^(input|select|textarea)$/i;return r=function(e,t){var a=!e.nodeType||!1,i={validClass:"valid",invalidClass:"error",requiredClass:"required",placeholderClass:"placeholder",onSubmit:Function.prototype,onInvalid:Function.prototype};if("object"==typeof t)for(var r in i)t[r]===void 0&&(t[r]=i[r]);if(n=t||i,a)for(var s=0,o=e.length;o>s;s++)l(e[s]);else l(e)},l=function(a){var i,r=a.elements,l=r.length,c=!!a.attributes.novalidate;if(g(a,"invalid",o,!0),g(a,"blur",o,!0),g(a,"input",o,!0),g(a,"keyup",o,!0),g(a,"focus",o,!0),g(a,"change",o,!0),g(a,"click",u,!0),g(a,"submit",function(i){return e=!0,t||c||a.checkValidity()?(n.onSubmit.call(a,i),void 0):(w(i),void 0)},!1),!v())for(a.checkValidity=function(){return d(a)};l--;)i=!!r[l].attributes.required,"fieldset"!==r[l].nodeName.toLowerCase()&&s(r[l])},s=function(e){var t=e,a=h(t),n={type:t.getAttribute("type"),pattern:t.getAttribute("pattern"),placeholder:t.getAttribute("placeholder")},r=/^(email|url)$/i,l=/^(input|keyup)$/i,s=r.test(n.type)?n.type:n.pattern?n.pattern:!1,o=p(t,s),u=m(t,"step"),v=m(t,"min"),b=m(t,"max"),g=!(""===t.validationMessage||void 0===t.validationMessage);t.checkValidity=function(){return d.call(this,t)},t.setCustomValidity=function(e){c.call(t,e)},t.validity={valueMissing:a,patternMismatch:o,rangeUnderflow:v,rangeOverflow:b,stepMismatch:u,customError:g,valid:!(a||o||u||v||b||g)},n.placeholder&&!l.test(i)&&f(t)},o=function(e){var t=C(e)||e,a=/^(input|keyup|focusin|focus|change)$/i,r=/^(submit|image|button|reset)$/i,l=/^(checkbox|radio)$/i,u=!0;!L.test(t.nodeName)||r.test(t.type)||r.test(t.nodeName)||(i=e.type,v()||s(t),t.validity.valid&&(""!==t.value||l.test(t.type))||t.value!==t.getAttribute("placeholder")&&t.validity.valid?(A(t,[n.invalidClass,n.requiredClass]),N(t,n.validClass)):a.test(i)?t.validity.valueMissing&&A(t,[n.requiredClass,n.invalidClass,n.validClass]):t.validity.valueMissing?(A(t,[n.invalidClass,n.validClass]),N(t,n.requiredClass)):t.validity.valid||(A(t,[n.validClass,n.requiredClass]),N(t,n.invalidClass)),"input"===i&&u&&(y(t.form,"keyup",o,!0),u=!1))},d=function(t){var a,i,r,l,s,u=!1;if("form"===t.nodeName.toLowerCase()){a=t.elements;for(var d=0,c=a.length;c>d;d++)i=a[d],r=!!i.attributes.disabled,l=!!i.attributes.required,s=!!i.attributes.pattern,"fieldset"!==i.nodeName.toLowerCase()&&!r&&(l||s&&l)&&(o(i),i.validity.valid||u||(e&&i.focus(),u=!0,n.onInvalid.call(t,i)));return!u}return o(t),t.validity.valid},c=function(e){var t=this;t.validationMessage=e},u=function(e){var a=C(e);a.attributes.formnovalidate&&"submit"===a.type&&(t=!0)},v=function(){return E(k,"validity")&&E(k,"checkValidity")},p=function(e,t){if("email"===t)return!q.test(e.value);if("url"===t)return!M.test(e.value);if(t){var i=e.getAttribute("placeholder"),n=e.value;return a=RegExp("^(?:"+t+")$"),n===i?!1:""===n?!1:!a.test(e.value)}return!1},f=function(e){var t={placeholder:e.getAttribute("placeholder")},a=/^(focus|focusin|submit)$/i,r=/^(input|textarea)$/i,l=/^password$/i,s=!!("placeholder"in k);s||!r.test(e.nodeName)||l.test(e.type)||(""!==e.value||a.test(i)?e.value===t.placeholder&&a.test(i)&&(e.value="",A(e,n.placeholderClass)):(e.value=t.placeholder,g(e.form,"submit",function(){i="submit",f(e)},!0),N(e,n.placeholderClass)))},m=function(e,t){var a=parseInt(e.getAttribute("min"),10)||0,i=parseInt(e.getAttribute("max"),10)||!1,n=parseInt(e.getAttribute("step"),10)||1,r=parseInt(e.value,10),l=(r-a)%n;return h(e)||isNaN(r)?"number"===e.getAttribute("type")?!0:!1:"step"===t?e.getAttribute("step")?0!==l:!1:"min"===t?e.getAttribute("min")?a>r:!1:"max"===t?e.getAttribute("max")?r>i:!1:void 0},b=function(e){var t=!!e.attributes.required;return t?h(e):!1},h=function(e){var t=e.getAttribute("placeholder"),a=/^(checkbox|radio)$/i,i=!!e.attributes.required;return!(!i||""!==e.value&&e.value!==t&&(!a.test(e.type)||$(e)))},g=function(e,t,a,i){E(window,"addEventListener")?e.addEventListener(t,a,i):E(window,"attachEvent")&&window.event!==void 0&&("blur"===t?t="focusout":"focus"===t&&(t="focusin"),e.attachEvent("on"+t,a))},y=function(e,t,a,i){E(window,"removeEventListener")?e.removeEventListener(t,a,i):E(window,"detachEvent")&&window.event!==void 0&&e.detachEvent("on"+t,a)},w=function(e){e=e||window.event,e.stopPropagation&&e.preventDefault?(e.stopPropagation(),e.preventDefault()):(e.cancelBubble=!0,e.returnValue=!1)},C=function(e){return e=e||window.event,e.target||e.srcElement},N=function(e,t){var a;e.className?(a=RegExp("(^|\\s)"+t+"(\\s|$)"),a.test(e.className)||(e.className+=" "+t)):e.className=t},A=function(e,t){var a,i,n="object"==typeof t?t.length:1,r=n;if(e.className)if(e.className===t)e.className="";else for(;n--;)a=RegExp("(^|\\s)"+(r>1?t[n]:t)+"(\\s|$)"),i=e.className.match(a),i&&3===i.length&&(e.className=e.className.replace(a,i[1]&&i[2]?" ":""))},E=function(e,t){var a=typeof e[t],i=RegExp("^function|object$","i");return!!(i.test(a)&&e[t]||"unknown"===a)},$=function(e){for(var t=document.getElementsByName(e.name),a=0;t.length>a;a++)if(t[a].checked)return!0;return!1},{setup:r}});
+                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                </script>
+
 
 </head>
 
@@ -272,71 +306,74 @@ input[type='text'], input:not([type]), textarea {
 <!--行程預覽區塊-->
 
 
-<div class="ss-form"><form action="https://docs.google.com/forms/d/1-03gpOzsKEKZd_2ZRMhpi0ZafW0roA0J0x6ZIU_IWns/formResponse" method="POST" id="ss-form" target="_self" onsubmit=""><ol role="list" class="ss-question-list" style="padding-left: 0">
+<div class="ss-form"><form action="https://docs.google.com/a/csssjp.com/forms/d/1Ot0JZw1czQPeH7mESgbAtX-mC3NVJA_qUGlgvxsCrMw/formResponse" method="POST" id="ss-form" target="_self" onsubmit=""><ol role="list" class="ss-question-list" style="padding-left: 0">
     
 <div id="cs_page1">
     
-<!--<div class="ss-top-of-page"><div class="ss-form-heading" ><h1 class="ss-form-title" dir="ltr" >行程規劃</h1>-->
-<!--</div></div>-->
 
 <img  src="./resource/stepbar1.png" width="400" height="67"/>
 
     
 <div class="ss-form-question errorbox-good" role="listitem">
-<div dir="auto" class="ss-item ss-item-required ss-date"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_371807638"><div class="ss-q-title">出發日期
-<label for="itemView.getDomIdToLabel()" aria-label="（必須）"></label>
+<div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_411712301"><div class="ss-q-title">出發日期
+<label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
 <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
 <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-<input type="text" name="entry.371807638" value="12/01/2015" class="" dir="auto" id="entry_371807638" aria-label="航空出發日期  " aria-required="true" required="" >
-<div class="required-message">這是必填問題</div></div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
+<input type="text" name="entry.411712301" value="12/01/2015" class="" id="entry_411712301" dir="auto" aria-label="出發日期  " aria-required="true" required="" title="">
+<div class="error-message" id="1793850636_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+
+<div class="ss-form-question errorbox-good" role="listitem">
 <div dir="auto" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_1092768878"><div class="ss-q-title">行程方案
-<label for="itemView.getDomIdToLabel()" aria-label="（必須）"></label>
-<span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+<label class="ss-q-item-label" for="entry_54485662"><div class="ss-q-title">行程方案
+    <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
+    <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
 <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
 
-<ul class="ss-choices" role="radiogroup" aria-label="行程方案  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" checked="true" name="entry.1850683823" value="五天四夜套裝行程" id="group_1850683823_1" role="radio" class="ss-q-radio" aria-label="五天四夜套裝行程" required="" aria-required="true" ></span>
-<span class="ss-choice-label">五天四夜套裝行程</span>
-</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input  type="radio" name="entry.1850683823" value="六天五夜套裝行程" id="group_1850683823_2" role="radio" class="ss-q-radio" aria-label="六天五夜套裝行程" required="" aria-required="true" ></span>
-<span class="ss-choice-label">六天五夜套裝行程</span>
-</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1850683823" value="客製行程" id="group_1850683823_3" role="radio" class="ss-q-radio" aria-label="客製行程" required="" aria-required="true" ></span>
-<span class="ss-choice-label">客製行程</span>
-</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1850683823" value="純滑雪課程" id="group_1850683823_4" role="radio" class="ss-q-radio" aria-label="純滑雪課程" required="" aria-required="true" ></span>
-<span class="ss-choice-label">純滑雪課程</span>
-</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1850683823" value="住宿加交通" id="group_1850683823_5" role="radio" class="ss-q-radio" aria-label="住宿加交通" required="" aria-required="true" ></span>
-<span class="ss-choice-label">住宿加交通</span>
+<ul class="ss-choices" role="radiogroup" aria-label="行程方案  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174"  checked="true"  value="&#20116;&#22825;&#22235;&#22812;&#22871;&#35037;&#34892;&#31243;" id="group_749046174_1" role="radio" class="ss-q-radio" aria-label="&#20116;&#22825;&#22235;&#22812;&#22871;&#35037;&#34892;&#31243;" required="" aria-required="true"></span>
+    <span class="ss-choice-label">五天四夜套裝行程</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#20845;&#22825;&#20116;&#22812;&#22871;&#35037;&#34892;&#31243;" id="group_749046174_2" role="radio" class="ss-q-radio" aria-label="&#20845;&#22825;&#20116;&#22812;&#22871;&#35037;&#34892;&#31243;" required="" aria-required="true"></span>
+    <span class="ss-choice-label">六天五夜套裝行程</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#23458;&#35069;&#34892;&#31243;" id="group_749046174_3" role="radio" class="ss-q-radio" aria-label="&#23458;&#35069;&#34892;&#31243;" required="" aria-required="true"></span>
+    <span class="ss-choice-label">客製行程</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#32020;&#28369;&#38634;&#34892;&#31243;" id="group_749046174_4" role="radio" class="ss-q-radio" aria-label="&#32020;&#28369;&#38634;&#34892;&#31243;" required="" aria-required="true"></span>
+    <span class="ss-choice-label">純滑雪行程</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#20303;&#23487;&#21152;&#20132;&#36890;" id="group_749046174_5" role="radio" class="ss-q-radio" aria-label="&#20303;&#23487;&#21152;&#20132;&#36890;" required="" aria-required="true"></span>
+    <span class="ss-choice-label">住宿加交通</span>
 </label></li></ul>
-<div class="error-message" id="1092768878_errorMessage"></div>
+<div class="error-message" id="54485662_errorMessage"></div>
 <div class="required-message">這是必填問題</div></div></div></div>
 
 
 <div class="ss-form-question errorbox-good" role="listitem">
     <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_1132628283"><div class="ss-q-title">報名人數
+        <label class="ss-q-item-label" for="entry_815350989"><div class="ss-q-title">報名人數
             <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
             <span class="ss-required-asterisk" aria-hidden="true">*</span>
-            <input type="text" name="entry.1132628283" value="1" class="ss-q-short" style="width: 20px" id="entry_1132628283" dir="auto" aria-label="報名人數 6 人以上每人享團體報名優惠 1000 元 " aria-required="true" required="" title="" > 人
+            <input type="text" name="entry.815350989" value="1" class="ss-q-short" style="width: 20px" id="entry_815350989" dir="auto" aria-label="報名人數 6 人以上每人享團體報名優惠 1000 元 " aria-required="true" required="" title="" > 人
         </div>
         <div id="cs_group_special_msg" class="ss-q-help ss-secondary-text" dir="auto">6 人以上每人享團體報名優惠 1000 元</div></label>
         
-            <div class="error-message" id="612607187_errorMessage"></div>
+            <div class="error-message" id="1517710024_errorMessage"></div>
             <div class="required-message">這是必填問題</div>
     </div></div></div>
 
 
 <div id="cs_singleroom_block" class="ss-form-question errorbox-good" role="listitem">
     <div dir="auto" class="ss-item  ss-radio"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_986182209"><div class="ss-q-title">單人報名選項
+        <label class="ss-q-item-label" for="entry_1529307880"><div class="ss-q-title">單人報名選項
         </div>
         <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
         
-        <ul class="ss-choices" role="radiogroup" aria-label="單人報名選項  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" checked="true" name="entry.1572990219" value="安排併房" id="group_1572990219_1" role="radio" class="ss-q-radio" aria-label="安排併房" ></span>
+        <ul class="ss-choices" role="radiogroup" aria-label="單人報名選項  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1613544659" checked="true" value="&#23433;&#25490;&#20341;&#25151;" id="group_1613544659_1" role="radio" class="ss-q-radio" aria-label="&#23433;&#25490;&#20341;&#25151;"></span>
             <span class="ss-choice-label">安排併房</span>
-        </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1572990219" value="&#25351;&#23450;&#21934;&#20154;&#25151;&nbsp;(+2,500 NTD/day)" id="group_1572990219_2" role="radio" class="ss-q-radio" aria-label="&#25351;&#23450;&#21934;&#20154;&#25151;&nbsp;(+2,500 NTD/day)"></span>
+        </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1613544659" value="&#25351;&#23450;&#21934;&#20154;&#25151; (+2,500 NTD/day)" id="group_1613544659_2" role="radio" class="ss-q-radio" aria-label="&#25351;&#23450;&#21934;&#20154;&#25151; (+2,500 NTD/day)"></span>
             <span class="ss-choice-label">指定單人房 (+2,500 NTD/day)</span>
         </label></li></ul>
-        <div class="error-message" id="986182209_errorMessage"></div>
+        <div class="error-message" id="1529307880_errorMessage"></div>
         <div class="required-message">這是必填問題</div></div></div>
 </div>
 
@@ -381,169 +418,173 @@ input[type='text'], input:not([type]), textarea {
 
 <!-- Hidden Fields-->
 <div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_580752906"><div class="ss-q-title">網站估價
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.580752906" value="" class="ss-q-short" id="entry_580752906" dir="auto" aria-label="網站估價  " title="">
-            <div class="error-message" id="240874172_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_557064129"><div class="ss-q-title">網站估價
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.557064129" value="" class="ss-q-short" id="entry_557064129" dir="auto" aria-label="網站估價  " title="">
+    <div class="error-message" id="340911994_errorMessage"></div>
+    <div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+    <label class="ss-q-item-label" for="entry_213026263"><div class="ss-q-title">回程日期
+    </div>
+    <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+    <input type="text" name="entry.213026263" value="" class="ss-q-short" id="entry_213026263" dir="auto" aria-label="回程日期  " title="">
+        <div class="error-message" id="1038124004_errorMessage"></div>
+        <div class="required-message">這是必填問題</div>
+</div></div></div>
 
 <div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
     <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_34511761"><div class="ss-q-title">回程日期
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.34511761" value="" class="ss-q-short" id="entry_34511761" dir="auto" aria-label="回程日期  " title="">
-            <div class="error-message" id="640309022_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_495379638"><div class="ss-q-title">滑雪器材租用
+        <label class="ss-q-item-label" for="entry_2119930371"><div class="ss-q-title">滑雪器材租用
         </div>
         <div class="ss-q-help ss-secondary-text" dir="auto">滑雪用具預先訂購享有九折優惠</div></label>
-        <input type="text" name="entry.495379638" value="" class="ss-q-short" id="entry_495379638" dir="auto" aria-label="滑雪器材租用 滑雪用具預先訂購享有九折優惠 " title="">
+        <input type="text" name="entry.2119930371" value="" class="ss-q-short" id="entry_2119930371" dir="auto" aria-label="滑雪器材租用 滑雪用具預先訂購享有九折優惠 " title="">
             <div class="error-message" id="1175604407_errorMessage"></div>
             <div class="required-message">這是必填問題</div>
     </div></div></div>
 
 <div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
     <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_184478099"><div class="ss-q-title">雪場住宿天數
+        <label class="ss-q-item-label" for="entry_1523183644"><div class="ss-q-title">雪場住宿天數
         </div>
         <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.184478099" value="" class="ss-q-short" id="entry_184478099" dir="auto" aria-label="雪場住宿天數  " title="">
-            <div class="error-message" id="1041473069_errorMessage"></div>
+        <input type="text" name="entry.1523183644" value="" class="ss-q-short" id="entry_1523183644" dir="auto" aria-label="雪場住宿天數  " title="">
+            <div class="error-message" id="1888269724_errorMessage"></div>
             <div class="required-message">這是必填問題</div>
     </div></div></div>
 
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_43940221"><div class="ss-q-title">雪場住宿日期
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.43940221" value="" class="ss-q-short" id="entry_43940221" dir="auto" aria-label="雪場住宿日期  " title="">
-            <div class="error-message" id="7040349_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_1230794840"><div class="ss-q-title">東京住宿天數
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.1230794840" value="" class="ss-q-short" id="entry_1230794840" dir="auto" aria-label="東京住宿天數  " title="">
-            <div class="error-message" id="160165687_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_1288571416"><div class="ss-q-title">東京住宿日期
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.1288571416" value="" class="ss-q-short" id="entry_1288571416" dir="auto" aria-label="東京住宿日期  " title="">
-            <div class="error-message" id="1382663686_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_1054173760"><div class="ss-q-title">滑雪課程
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.1054173760" value="" class="ss-q-short" id="entry_1054173760" dir="auto" aria-label="滑雪課程  " title="">
-            <div class="error-message" id="1664194512_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_198043184"><div class="ss-q-title">纜車票
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.198043184" value="" class="ss-q-short" id="entry_198043184" dir="auto" aria-label="纜車票  " title="">
-            <div class="error-message" id="1419973398_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_1705104221"><div class="ss-q-title">附註
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.1705104221" value="" class="ss-q-short" id="entry_1705104221" dir="auto" aria-label="附註  " title="">
-            <div class="error-message" id="1251050232_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_931324367"><div class="ss-q-title">OrderNo
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.931324367" value="" class="ss-q-short" id="entry_931324367" dir="auto" aria-label="OrderNo  " title="">
-            <div class="error-message" id="1172515178_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_87153517"><div class="ss-q-title">RentalPrice
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.87153517" value="" class="ss-q-short" id="entry_87153517" dir="auto" aria-label="RentalPrice  " title="">
-            <div class="error-message" id="77914972_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-        <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-            <label class="ss-q-item-label" for="entry_518706610"><div class="ss-q-title">TotalPrice
-            </div>
-            <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-            <input type="text" name="entry.518706610" value="" class="ss-q-short" id="entry_518706610" dir="auto" aria-label="TotalPrice  " title="">
-                <div class="error-message" id="1926213622_errorMessage"></div>
-                <div class="required-message">這是必填問題</div>
-        </div></div></div>
-
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-    <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_234273720"><div class="ss-q-title">出發日期含星期
-        </div>
-        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.234273720" value="" class="ss-q-short" id="entry_234273720" dir="auto" aria-label="出發日期含星期  " title="">
-            <div class="error-message" id="119001399_errorMessage"></div>
-            <div class="required-message">這是必填問題</div>
-    </div></div></div>
 <div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
 <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-    <label class="ss-q-item-label" for="entry_578893294"><div class="ss-q-title">出發日期民國
-    </div>
-    <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-    <input type="text" name="entry.578893294" value="" class="ss-q-short" id="entry_578893294" dir="auto" aria-label="出發日期民國  " title="">
-        <div class="error-message" id="439314675_errorMessage"></div>
-        <div class="required-message">這是必填問題</div>
-</div></div></div>
-<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
-<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_1432250747"><div class="ss-q-title">總天數
+<label class="ss-q-item-label" for="entry_752891155"><div class="ss-q-title">雪場住宿日期
 </div>
 <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-<input type="text" name="entry.1432250747" value="" class="ss-q-short" id="entry_1432250747" dir="auto" aria-label="總天數  " title="">
-    <div class="error-message" id="1499732166_errorMessage"></div>
-    <div class="required-message">這是必填問題</div>
+<input type="text" name="entry.752891155" value="" class="ss-q-short" id="entry_752891155" dir="auto" aria-label="雪場住宿日期  " title="">
+<div class="error-message" id="1494252422_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
 </div></div></div>
+    
 <div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
 <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
-    <label class="ss-q-item-label" for="entry_2016721542"><div class="ss-q-title">合約內容變動部分
+<label class="ss-q-item-label" for="entry_682328297"><div class="ss-q-title">東京住宿天數
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.682328297" value="" class="ss-q-short" id="entry_682328297" dir="auto" aria-label="東京住宿天數  " title="">
+<div class="error-message" id="1108318030_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_1288784326"><div class="ss-q-title">東京住宿日期
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.1288784326" value="" class="ss-q-short" id="entry_1288784326" dir="auto" aria-label="東京住宿日期  " title="">
+<div class="error-message" id="1325612202_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_151962864"><div class="ss-q-title">滑雪課程
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.151962864" value="" class="ss-q-short" id="entry_151962864" dir="auto" aria-label="滑雪課程  " title="">
+<div class="error-message" id="1540645305_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_1683438954"><div class="ss-q-title">纜車票
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.1683438954" value="" class="ss-q-short" id="entry_1683438954" dir="auto" aria-label="纜車票  " title="">
+<div class="error-message" id="1913908159_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_947056976"><div class="ss-q-title">附註
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.947056976" value="" class="ss-q-short" id="entry_947056976" dir="auto" aria-label="附註  " title="">
+    <div class="error-message" id="679921072_errorMessage"></div>
+    <div class="required-message">這是必填問題</div>
+</div></div></div>
+
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_1217292414"><div class="ss-q-title">OrderNo
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.1217292414" value="" class="ss-q-short" id="entry_1217292414" dir="auto" aria-label="OrderNo  " title="">
+<div class="error-message" id="1868474534_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_1277982522"><div class="ss-q-title">RentalPrice
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.1277982522" value="" class="ss-q-short" id="entry_1277982522" dir="auto" aria-label="RentalPrice  " title="">
+<div class="error-message" id="1097514576_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_1752109775"><div class="ss-q-title">TotalPrice
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.1752109775" value="" class="ss-q-short" id="entry_1752109775" dir="auto" aria-label="TotalPrice  " title="">
+<div class="error-message" id="441413492_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_742756659"><div class="ss-q-title">出發日期含星期
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.742756659" value="" class="ss-q-short" id="entry_742756659" dir="auto" aria-label="出發日期含星期  " title="">
+<div class="error-message" id="1036368368_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_87958855"><div class="ss-q-title">出發日期民國
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.87958855" value="" class="ss-q-short" id="entry_87958855" dir="auto" aria-label="出發日期民國  " title="">
+<div class="error-message" id="386400254_errorMessage"></div>
+<div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+<label class="ss-q-item-label" for="entry_360297202"><div class="ss-q-title">總天數
+</div>
+<div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+<input type="text" name="entry.360297202" value="" class="ss-q-short" id="entry_360297202" dir="auto" aria-label="總天數  " title="">
+    <div class="error-message" id="1710490214_errorMessage"></div>
+    <div class="required-message">這是必填問題</div>
+</div></div></div>
+
+<div class="ss-form-question errorbox-good" style="display: none;" role="listitem">
+<div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+    <label class="ss-q-item-label" for="entry_1895785059"><div class="ss-q-title">合約內容變動部分
     </div>
     <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-    <input type="text" name="entry.2016721542" value="" class="ss-q-short" id="entry_2016721542" dir="auto" aria-label="合約內容變動部分  " title="">
-        <div class="error-message" id="2082912956_errorMessage"></div>
+    <input type="text" name="entry.1895785059" value="" class="ss-q-short" id="entry_1895785059" dir="auto" aria-label="合約內容變動部分  " title="">
+        <div class="error-message" id="2098055337_errorMessage"></div>
         <div class="required-message">這是必填問題</div>
 </div></div></div>
 <!-- Hidden Fields -->
@@ -557,25 +598,25 @@ input[type='text'], input:not([type]), textarea {
 <!-- Customer Data -->
 <div class="ss-form-question errorbox-good" role="listitem">
     <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_162334559"><div class="ss-q-title">姓名
+        <label class="ss-q-item-label" for="entry_284051328"><div class="ss-q-title">姓名
             <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
             <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
         <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-        <input type="text" name="entry.162334559" value="" class="ss-q-short" id="entry_162334559" dir="auto" aria-label="姓名  " aria-required="true" required="" title="">
-            <div class="error-message" id="1777787422_errorMessage"></div>
+        <input type="text" name="entry.284051328" value="" class="ss-q-short" id="entry_284051328" dir="auto" aria-label="姓名  " aria-required="true" required="" title="">
+            <div class="error-message" id="1130562965_errorMessage"></div>
             <div class="required-message">這是必填問題</div>
 </div></div></div>
 
 <div class="ss-form-question errorbox-good" role="listitem">
-        <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-            <label class="ss-q-item-label" for="entry_1282595368"><div class="ss-q-title">Email
-                <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
-                <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
-            <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-            <input type="text" name="entry.1282595368" value="" class="ss-q-short" id="entry_1282595368" dir="auto" aria-label="Email  " aria-required="true" required="" title="">
-                <div class="error-message" id="1492951065_errorMessage">必填</div>
-                <div class="required-message">這是必填問題</div>
-</div></div></div>
+    <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
+        <label class="ss-q-item-label" for="entry_1632565598"><div class="ss-q-title">Email
+            <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
+            <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
+        <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+        <input type="text" name="entry.1632565598" value="" class="ss-q-short" id="entry_1632565598" dir="auto" aria-label="Email  " aria-required="true" required="" title="">
+            <div class="error-message" id="1993818043_errorMessage"></div>
+            <div class="required-message">這是必填問題</div>
+    </div></div></div>
 <!-- Customer Data -->
 <input id="cs_page2_back_button" type="button" value="回行程規劃" class="jfk-button jfk-button-action "></input>
 <input id="cs_page2_button" type="button" value="下一步" class="jfk-button jfk-button-action "></input>
@@ -649,15 +690,15 @@ input[type='text'], input:not([type]), textarea {
     var cs_one_more_private_class = 2000;  //私人課追加一人 JPY
     
     /****** UI Elements ******/
-    var cs_setoff_date_ele = document.getElementById("entry_371807638");
-    var cs_itinerary_5days_radio_ele = document.getElementById("group_1850683823_1");
-    var cs_itinerary_6days_radio_ele = document.getElementById("group_1850683823_2");
-    var cs_itinerary_custom_radio_ele = document.getElementById("group_1850683823_3");
-    var cs_itinerary_class_only_radio_ele = document.getElementById("group_1850683823_4");
-    var cs_itinerary_noski_radio_ele = document.getElementById("group_1850683823_5");
-    var cs_people_text_ele = document.getElementById("entry_1132628283");
-    var cs_shareroom_radio_ele = document.getElementById("group_1572990219_1");
-    var cs_singleroom_radio_ele = document.getElementById("group_1572990219_2");
+    var cs_setoff_date_ele = document.getElementById("entry_411712301");
+    var cs_itinerary_5days_radio_ele = document.getElementById("group_749046174_1");
+    var cs_itinerary_6days_radio_ele = document.getElementById("group_749046174_2");
+    var cs_itinerary_custom_radio_ele = document.getElementById("group_749046174_3");
+    var cs_itinerary_class_only_radio_ele = document.getElementById("group_749046174_4");
+    var cs_itinerary_noski_radio_ele = document.getElementById("group_749046174_5");
+    var cs_people_text_ele = document.getElementById("entry_815350989");
+    var cs_shareroom_radio_ele = document.getElementById("group_1613544659_1");
+    var cs_singleroom_radio_ele = document.getElementById("group_1613544659_2");
     var cs_allgears_text_ele = document.getElementById("cs_allgears_text");
     var cs_allwears_text_ele = document.getElementById("cs_allwears_text");
     var cs_goggleglove_text_ele = document.getElementById("cs_goggleglove_text");
@@ -666,23 +707,23 @@ input[type='text'], input:not([type]), textarea {
     var cs_helmet_text_ele = document.getElementById("cs_helmet_text");
     
     /****** UI Elements(Hidden) ******/
-    var cs_offer_field_ele = document.getElementById("entry_580752906");
-    var cs_return_date_field_ele = document.getElementById("entry_34511761");
-    var cs_rental_field_ele = document.getElementById("entry_495379638");
-    var cs_ski_resort_days_field_ele = document.getElementById("entry_184478099");
-    var cs_ski_resort_date_field_ele = document.getElementById("entry_43940221");
-    var cs_tokyo_days_field_ele = document.getElementById("entry_1230794840");
-    var cs_tokyo_date_field_ele = document.getElementById("entry_1288571416");
-    var cs_class_field_ele = document.getElementById("entry_1054173760");
-    var cs_lift_ticket_field_ele = document.getElementById("entry_198043184");
-    var cs_misc_field_ele = document.getElementById("entry_1705104221");
-    var cs_orderno_field_ele = document.getElementById("entry_931324367");
-    var cs_rental_price_field_ele = document.getElementById("entry_87153517");
-    var cs_total_price_field_ele = document.getElementById("entry_518706610");
-    var cs_total_days_field_ele = document.getElementById("entry_1432250747");
-    var cs_setoff_date_week_ele = document.getElementById("entry_234273720");
-    var cs_setoff_date_taiwan_ele = document.getElementById("entry_578893294");
-    var cs_contract_ele = document.getElementById("entry_2016721542");
+    var cs_offer_field_ele = document.getElementById("entry_557064129");
+    var cs_return_date_field_ele = document.getElementById("entry_213026263");
+    var cs_rental_field_ele = document.getElementById("entry_2119930371");
+    var cs_ski_resort_days_field_ele = document.getElementById("entry_1523183644");
+    var cs_ski_resort_date_field_ele = document.getElementById("entry_752891155");
+    var cs_tokyo_days_field_ele = document.getElementById("entry_682328297");
+    var cs_tokyo_date_field_ele = document.getElementById("entry_1288784326");
+    var cs_class_field_ele = document.getElementById("entry_151962864");
+    var cs_lift_ticket_field_ele = document.getElementById("entry_1683438954");
+    var cs_misc_field_ele = document.getElementById("entry_947056976");
+    var cs_orderno_field_ele = document.getElementById("entry_1217292414");
+    var cs_rental_price_field_ele = document.getElementById("entry_1277982522");
+    var cs_total_price_field_ele = document.getElementById("entry_1752109775");
+    var cs_total_days_field_ele = document.getElementById("entry_360297202");
+    var cs_setoff_date_week_ele = document.getElementById("entry_742756659");
+    var cs_setoff_date_taiwan_ele = document.getElementById("entry_87958855");
+    var cs_contract_ele = document.getElementById("entry_1895785059");
     
     /****** Block Elements ******/
     var cs_singleroom_block_ele = document.getElementById("cs_singleroom_block");
