@@ -244,6 +244,21 @@ input[type='text'], input:not([type]), textarea {
 }
 }
 
+.flyout{
+    position:absolute;
+    padding: 5px;
+    background:lightyellow;
+    overflow: hidden;
+    z-index:10000;
+    border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD;
+    display:none;
+}
+.question-mark:hover + .flyout{
+    display:block;
+}
+
+
+
 </style>
 
 <script type="text/javascript">
@@ -316,11 +331,11 @@ input[type='text'], input:not([type]), textarea {
     
 <div class="ss-form-question errorbox-good" role="listitem">
 <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_411712301"><div class="ss-q-title">出發日期
+<label class="ss-q-item-label" for="entry_411712301"><div class="ss-q-title">1.出發日期
 <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
 <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
 <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
-<input type="text" name="entry.411712301" value="12/01/2015" class="" id="entry_411712301" dir="auto" aria-label="出發日期  " aria-required="true" required="" title="">
+<input type="text" name="entry.411712301" value="" class="" id="entry_411712301" dir="auto" aria-label="出發日期  " aria-required="true" required="" title="">
 <div class="error-message" id="1793850636_errorMessage"></div>
 <div class="required-message">這是必填問題</div>
 </div></div></div>
@@ -328,21 +343,51 @@ input[type='text'], input:not([type]), textarea {
 
 <div class="ss-form-question errorbox-good" role="listitem">
 <div dir="auto" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_54485662"><div class="ss-q-title">行程方案
+<label class="ss-q-item-label" for="entry_54485662"><div class="ss-q-title">2.行程方案
     <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
     <span class="ss-required-asterisk" aria-hidden="true">*</span></div>
 <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
 
 <ul class="ss-choices" role="radiogroup" aria-label="行程方案  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174"  checked="true"  value="&#20116;&#22825;&#22235;&#22812;&#22871;&#35037;&#34892;&#31243;" id="group_749046174_1" role="radio" class="ss-q-radio" aria-label="&#20116;&#22825;&#22235;&#22812;&#22871;&#35037;&#34892;&#31243;" required="" aria-required="true"></span>
     <span class="ss-choice-label">五天四夜套裝行程</span>
+    <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+    <div  class="flyout" ><img src="./resource/5days.png"></div>
 </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#20845;&#22825;&#20116;&#22812;&#22871;&#35037;&#34892;&#31243;" id="group_749046174_2" role="radio" class="ss-q-radio" aria-label="&#20845;&#22825;&#20116;&#22812;&#22871;&#35037;&#34892;&#31243;" required="" aria-required="true"></span>
     <span class="ss-choice-label">六天五夜套裝行程</span>
+    <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+    <div  class="flyout" ><img src="./resource/6days.png"></div>
 </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#23458;&#35069;&#34892;&#31243;" id="group_749046174_3" role="radio" class="ss-q-radio" aria-label="&#23458;&#35069;&#34892;&#31243;" required="" aria-required="true"></span>
     <span class="ss-choice-label">客製行程</span>
+    <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+    <div  class="flyout" >依"五天四夜"、"六天五夜"套裝行程為基礎做內容上的增減。<br/>
+        <img src="./resource/custom.png"></div>
 </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#32020;&#28369;&#38634;&#34892;&#31243;" id="group_749046174_4" role="radio" class="ss-q-radio" aria-label="&#32020;&#28369;&#38634;&#34892;&#31243;" required="" aria-required="true"></span>
-    <span class="ss-choice-label">純滑雪行程</span>
+    <span class="ss-choice-label">僅預定滑雪行程</span>
+    <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+    <div  class="flyout" >報名滑雪課程，課程內容及收費如下表。<br/>
+        <img src="./resource/classonly.png"/>
+    </div>
 </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#20303;&#23487;&#21152;&#20132;&#36890;" id="group_749046174_5" role="radio" class="ss-q-radio" aria-label="&#20303;&#23487;&#21152;&#20132;&#36890;" required="" aria-required="true"></span>
-    <span class="ss-choice-label">住宿加交通</span>
+    <span class="ss-choice-label">僅預定住宿與交通</span>
+    <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+    <div  class="flyout" >如果您只需要我們替您個別安排住宿與交通：<br/><br/>
+        
+        交通方式說明如下。<br/><br/>
+        
+        無限界滑走提供 "白馬～東京市區(池袋)～Narita成田機場"<br/><br/>
+        
+        接送巴士。<br/>
+        非訂購套裝行程者，直達巴士收費如下: 來回NTD$3,100 單程NTD$1,800<br/>
+        
+        巴士所需運行時間與停靠點：<br/>
+        [去程] Narita成田機場～白馬民宿  直達巴士運行時間約4小時50分。<br/>
+        [回程] 白馬民宿～東京市區(池袋)～Narita成田機場  直通巴士運行時間約3小時50分。<br/><br/>
+        
+        
+        
+        以上行車時間與東京市區停靠點依氣候與交通狀況有所變動。如果您只預定巴士，發車狀況將於出發前一週做發車與否的確認。<br/><br/>
+        
+        住宿如遇旺季，民宿安排則依確定訂單當天狀況而定。民宿介紹請參考官網：http://www.csssjp.com/#!hostels/c1gjq</div>
 </label></li></ul>
 <div class="error-message" id="54485662_errorMessage"></div>
 <div class="required-message">這是必填問題</div></div></div></div>
@@ -350,7 +395,7 @@ input[type='text'], input:not([type]), textarea {
 
 <div class="ss-form-question errorbox-good" role="listitem">
     <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_815350989"><div class="ss-q-title">報名人數
+        <label class="ss-q-item-label" for="entry_815350989"><div class="ss-q-title">3.報名人數
             <label for="itemView.getDomIdToLabel()" aria-label="(必填欄位)"></label>
             <span class="ss-required-asterisk" aria-hidden="true">*</span>
             <input type="text" name="entry.815350989" value="1" class="ss-q-short" style="width: 20px" id="entry_815350989" dir="auto" aria-label="報名人數 6 人以上每人享團體報名優惠 1000 元 " aria-required="true" required="" title="" > 人
@@ -364,14 +409,26 @@ input[type='text'], input:not([type]), textarea {
 
 <div id="cs_singleroom_block" class="ss-form-question errorbox-good" role="listitem">
     <div dir="auto" class="ss-item  ss-radio"><div class="ss-form-entry">
-        <label class="ss-q-item-label" for="entry_1529307880"><div class="ss-q-title">單人報名選項
+        <label class="ss-q-item-label" for="entry_1529307880"><div class="ss-q-title">4.單人報名選項
         </div>
         <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
         
         <ul class="ss-choices" role="radiogroup" aria-label="單人報名選項  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1613544659" checked="true" value="&#23433;&#25490;&#20341;&#25151;" id="group_1613544659_1" role="radio" class="ss-q-radio" aria-label="&#23433;&#25490;&#20341;&#25151;"></span>
             <span class="ss-choice-label">安排併房</span>
+            <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+            <div  class="flyout" >如果您是單人報名，我們可以安排您與其他客人併房住宿。</div>
         </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1613544659" value="&#25351;&#23450;&#21934;&#20154;&#25151; (+2,500 NTD/day)" id="group_1613544659_2" role="radio" class="ss-q-radio" aria-label="&#25351;&#23450;&#21934;&#20154;&#25151; (+2,500 NTD/day)"></span>
             <span class="ss-choice-label">指定單人房 (+2,500 NTD/day)</span>
+            <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+            <div  class="flyout" >單人入住，房型為傳統和室或是小型洋式房。使用民宿公共澡堂。<br/><br/>
+                
+                民宿公共設施說明：<br/>
+                民宿內皆有大眾溫泉浴室、公共廁所與洗手台。<br/><br/>
+                
+                民宿房間設施說明：<br/>
+                岳園莊- 和室2~3人小型房間，皆無廁所及洗手台設施。<br/>
+                LODGE 310-和室與洋室房，皆需使用公共廁所與洗手台設施。<br/>
+                Chalet Iwatake-和室房，需使用公共廁所與洗手台設施。</div>
         </label></li></ul>
         <div class="error-message" id="1529307880_errorMessage"></div>
         <div class="required-message">這是必填問題</div></div></div>
@@ -380,33 +437,48 @@ input[type='text'], input:not([type]), textarea {
 <!-- This is not original form -->
 <div class="ss-form-question errorbox-good" role="listitem">
 <div dir="auto" class="ss-item  ss-checkbox"><div class="ss-form-entry">
-<label class="ss-q-item-label" for="entry_1175604407"><div class="ss-q-title">滑雪器材租用
+<label class="ss-q-item-label" for="entry_1175604407"><div class="ss-q-title">5.滑雪器材租用
 </div>
 <div class="ss-q-help ss-secondary-text" dir="auto">滑雪用具預先訂購享有九折優惠</div></label>
 
 <table>
     <tr>
-        <td><span class="ss-choice-label">全套雪具</span></td>
+        <td><span class="ss-choice-label">全套雪具</span>
+            <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+            <div  class="flyout" >1. Snowboard, Binding, Boots<br/>
+                2. Ski, Binding, Poles, Boots</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_allgears_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (800元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">全套雪衣</span></td>
+        <td><span class="ss-choice-label">全套雪衣</span>
+            <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+            <div  class="flyout" >滑雪外套 + 雪褲</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_allwears_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (800元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護目鏡，手套</span></td>
+        <td><span class="ss-choice-label">護目鏡，手套</span>
+            <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+            <div  class="flyout" >護目鏡：雪地上反光嚴重，直視雪地接近於直視陽光。配戴滑雪專用護目鏡可以在晴天的時候保護您的眼睛不受紫外線的侵害，更可以在下雪天讓您依然擁有清晰的視力以及保護您的眼睛不用風雪的傷害。<br/><br/>
+            
+            手套：滑雪專用耐磨、防寒手套。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_goggleglove_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護臀，護膝</span></td>
+        <td><span class="ss-choice-label">護臀，護膝</span>
+            <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+            <div  class="flyout" >初學者在學習平衡身體期間，常有跌坐或是跪倒的狀況發生。為了您身體的安全以及增加學習時的安全感，我們會建議您租用專業的保護裝備。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_kneepads_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護腕，護肘</span></td>
+        <td><span class="ss-choice-label">護腕，護肘</span>
+            <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+            <div  class="flyout" >初學者在學習平衡身體期間，在跌倒時常會試圖用雙手去支撐身體，而造成手腕以及手肘的扭、挫傷。為了您身體的安全以及增加學習時的安全感，我們會建議您租用專業的保護裝備。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_elbowpads_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">安全帽</span></td>
+        <td><span class="ss-choice-label">安全帽</span>
+            <span style="color:red" class="question-mark"> <img src="./resource/Moreinfo.jpg" /></span>
+            <div  class="flyout" >初學者在學習期間，偶爾會有突然間前撲或是後跌的狀況。為了您頭部的安全以及增加學習時的安全感，我們會建議您租用專業的安全帽。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_helmet_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (300元)</td>
     </tr>
 </table>
@@ -589,7 +661,7 @@ input[type='text'], input:not([type]), textarea {
 </div></div></div>
 <!-- Hidden Fields -->
 
-<input id="cs_page1_button" type="button" value="我要預定此行程" class="jfk-button jfk-button-action "></input>
+<input id="cs_page1_button" type="button" value="試算完成，準備進行預定。" class="jfk-button jfk-button-action "></input>
 </div><!--end of page1-->
 
 <div id="cs_page2" style="display: none">
@@ -779,6 +851,7 @@ input[type='text'], input:not([type]), textarea {
     /****** Init Scripts ******/
     function bindEventHandlers() {
         cs_setoff_date_ele.onchange = setOffDateChanged;
+        cs_setoff_date_ele.value = defaultDate();
         cs_itinerary_5days_radio_ele.onclick = fiveDaysRadioButtonOnClick;
         cs_itinerary_6days_radio_ele.onclick = sixDaysRadioButtonOnClick;
         cs_itinerary_custom_radio_ele.onclick = customRadioButtonOnClick;
@@ -797,18 +870,29 @@ input[type='text'], input:not([type]), textarea {
         cs_page2_button_ele.onclick = page2ButtonOnClick;
         cs_page2_back_button_ele.onclick = page2BackButtonOnClick;
         cs_page3_back_button_ele.onclick = page3BackButtonOnClick;
+        
     }
 
     function pageInit() {
         // Load the datepicker module to date fields
         $(function() {
-          $( cs_setoff_date_ele ).datepicker();
+          $( cs_setoff_date_ele ).datepicker({
+            minDate: 0,
+            maxDate: "2016/5/8",
+            dateFormat: "yy/mm/dd"
+          });
         });
         
         bindEventHandlers();
         
         //Load base prices and show a default itinerary after that.
         loadCsvData("./base.csv", fiveDaysRadioButtonOnClick);
+    }
+
+    function defaultDate() {
+        var today = new Date();
+        //var sevenDayAfter = today.addDays(7);
+        return today.simpleString();
     }
 
     pageInit();
@@ -1125,9 +1209,9 @@ input[type='text'], input:not([type]), textarea {
         this.addItineraryItem = function() {
             var newDate = this.returnDate;
             var defaultAcc = 0;
-            if(this.type == 4) {
-                defaultAcc = 1;
-            }
+            //if(this.type == 4) {
+            //    defaultAcc = 1;
+            //}
             var newItem = _factory.createItineraryItem(newDate, defaultAcc, false, 0, 0);
             this.dates.push(newItem);
             this.returnDate = newDate.addDays(1);
@@ -1171,10 +1255,12 @@ input[type='text'], input:not([type]), textarea {
             }
             
             // 單程巴士(交通加住宿)
-            if(!(this.goWayBus || this.returnWayBus)){
-                finalPrice = finalPrice - 3100;
-            }else if(!(this.goWayBus && this.returnWayBus)) {
-                finalPrice = finalPrice - cs_adjust_one_way_bus;
+            if(this.type == 4) {
+                if(!(this.goWayBus || this.returnWayBus)){
+                    finalPrice = finalPrice - 3100;
+                }else if(!(this.goWayBus && this.returnWayBus)) {
+                    finalPrice = finalPrice - cs_adjust_one_way_bus;
+                }
             }
             
             var groupBaseDay = 100; // 小於這個數字天數將不會額外計算
@@ -1410,28 +1496,39 @@ input[type='text'], input:not([type]), textarea {
         
         this.getDescription = function() {
             var text = "";
+            var dirty = false;
             if(this.allgear > 0) {
                 text += "全套雪具 x" + this.allgear + ", ";
+                dirty = true;
             }
             
             if(this.allwear > 0) {
                 text += "全套雪衣 x" + this.allwear + ", ";
+                dirty = true;
             }
             
             if(this.goggleGlove > 0) {
                 text += "Goggle手套 x" + this.goggleGlove + ", ";
+                dirty = true;
             }
             
             if(this.kneePads > 0) {
                 text += "護臀護膝 x" + this.kneePads + ", ";
+                dirty = true;
             }
             
             if(this.elbowPads > 0) {
                 text += "護腕護肘 x" + this.elbowPads + ", ";
+                dirty = true;
             }
             
             if(this.helmet > 0) {
                 text += "安全帽 x" + this.helmet + ", ";
+                dirty = true;
+            }
+            
+            if(!dirty) {
+               text = "無預定";
             }
             
             return text;
@@ -1547,7 +1644,7 @@ input[type='text'], input:not([type]), textarea {
                 instance.price = 0;
             }
             
-            instance.dates.push(this.createItineraryItem(firstDate, 0, false, 2));
+            instance.dates.push(this.createItineraryItem(firstDate, 0, false, 0));
             
             instance.returnDate = firstDate.addDays(1);
             return instance;
@@ -1568,7 +1665,7 @@ input[type='text'], input:not([type]), textarea {
                 instance.price = cs_bus_base_price;
             }
             
-            instance.dates.push(this.createItineraryItem(firstDate, 1, false, 0));
+            instance.dates.push(this.createItineraryItem(firstDate, 0, false, 0));
             
             instance.returnDate = firstDate.addDays(1);
             return instance;
@@ -1758,7 +1855,7 @@ input[type='text'], input:not([type]), textarea {
                 busDiv = document.createTextNode("回程巴士");
             }
             
-            var homeDiv = document.createTextNode("溫暖的家");
+            var homeDiv = document.createTextNode("返抵家門");
             var emptyDiv = document.createTextNode("");
 
             tmpDiv.appendChild(createDayDiv("第 " + (totalDays+1) + " 天", _itinerary.returnDate.simpleString(),  busDiv, homeDiv, emptyDiv, emptyDiv));
@@ -1823,7 +1920,7 @@ input[type='text'], input:not([type]), textarea {
         }
         
         var busDiv = document.createTextNode("回程巴士");
-        tmpDiv.appendChild(createDayDiv("第 " + (totalDays+1) + " 天", _itinerary.returnDate.simpleString(), busDiv, document.createTextNode("溫暖的家"), document.createTextNode(""), document.createTextNode("")));
+        tmpDiv.appendChild(createDayDiv("第 " + (totalDays+1) + " 天", _itinerary.returnDate.simpleString(), busDiv, document.createTextNode("返抵家門"), document.createTextNode(""), document.createTextNode("")));
         
         return tmpDiv;
     }
