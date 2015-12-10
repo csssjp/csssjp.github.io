@@ -2264,7 +2264,7 @@ input[type='text'], input:not([type]), textarea {
     /****** Tool Functions ******/
     function jumpto(anchor){
         //window.location.hash = anchor;
-        window.parent.scrollTo(0,0);
+        window.parent.parent.scrollTo(0,0);
     }
 
     function priceFinetune(price) {
