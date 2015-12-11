@@ -246,12 +246,12 @@ input[type='text'], input:not([type]), textarea {
 
 .flyout{
     position:absolute;
-    padding: 5px;
-    background:lightyellow;
+    padding: 10px;
+    background: #BBEBF9;
     overflow: hidden;
-    z-index:10000;
+    z-index: 10000;
     border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD;
-    display:none;
+    display: none;
 }
 .flyout-text-only{
     width: 400px;
@@ -334,7 +334,7 @@ input[type='text'], input:not([type]), textarea {
 <div id="cs_page1">
     
 
-<img  src="./resource/stepbar1.png" width="400" height="67"/>
+<img  src="./resource/stepbar1.png" width="550" />
 
     
 <div class="ss-form-question errorbox-good" role="listitem">
@@ -684,7 +684,7 @@ input[type='text'], input:not([type]), textarea {
 
 <div id="cs_page2" style="display: none">
 
-<img  id="cs_step2_top" src="./resource/stepbar2.png" width="400" height="67"/>
+<img  id="cs_step2_top" src="./resource/stepbar2.png" width="550" />
 <!-- Customer Data -->
 <div class="ss-form-question errorbox-good" role="listitem">
     <div dir="auto" class="ss-item ss-item-required ss-radio"><div class="ss-form-entry">
@@ -754,7 +754,7 @@ input[type='text'], input:not([type]), textarea {
     
 <div id="cs_page3" style="display: none">
 
-<img  src="./resource/stepbar3.png" width="400" height="67"/>
+<img  src="./resource/stepbar3.png" width="550" />
 <!--#9FDEEF-->
 <div id="cs_order_content" style="background-color: #BBEBF9;  top: 4em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; ">
 </div>
@@ -1891,7 +1891,7 @@ input[type='text'], input:not([type]), textarea {
         var tmpDiv = document.createElement("div");
         
         // custom buttons
-        tmpDiv.appendChild(createAddRemoveFlightButtonDiv((_itinerary.dates.length > 4), _itinerary.flight));
+        tmpDiv.appendChild(createAddRemoveFlightButtonDiv((_itinerary.dates.length > 3), _itinerary.flight));
         
         var totalDays = _itinerary.dates.length;
         
