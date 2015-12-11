@@ -20,6 +20,8 @@
 <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
 <style type="text/css">
+.os_mac {font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
+
 body {
   //background-color: rgb(231,238,247);
   //background-image: url('./resource/blue-stripe-bg.png');
@@ -72,7 +74,7 @@ body {
 }
 
 body {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 1.080rem;
@@ -80,7 +82,7 @@ body {
 }
 
 .ss-record-username-message {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 1.080rem;
@@ -88,7 +90,7 @@ body {
 }
 
 .ss-form-title {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 2.460rem;
@@ -96,7 +98,7 @@ body {
 }
 
 .ss-confirmation {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 2.460rem;
@@ -104,7 +106,7 @@ body {
 }
 
 .ss-page-title, .ss-section-title {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 1.845rem;
@@ -112,7 +114,7 @@ body {
 }
 
 .ss-form-desc, .ss-page-description, .ss-section-description {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(140,140,140);
   font-weight: 400;
   font-size: 1.080rem;
@@ -120,7 +122,7 @@ body {
 }
 
 .ss-resp-content {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 1.080rem;
@@ -128,7 +130,7 @@ body {
 }
 
 .ss-q-title {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 700;
   font-size: 1.080rem;
@@ -136,7 +138,7 @@ body {
 }
 
 .ss-embeddable-object-container .ss-q-title {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 700;
   font-size: 1.845rem;
@@ -144,7 +146,7 @@ body {
 }
 
 .ss-q-help, .ss-q-time-hint {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(140,140,140);
   font-weight: 400;
   font-size: 1.000rem;
@@ -152,7 +154,7 @@ body {
 }
 
 .ss-choice-label, .video-secondary-text, .ss-gridrow-leftlabel, .ss-gridnumber, .ss-scalenumber, .ss-leftlabel, .ss-rightlabel {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 1.000rem;
@@ -160,7 +162,7 @@ body {
 }
 
 .error-message, .required-message, .ss-required-asterisk {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(196,59,29);
   font-weight: 400;
   font-size: 1.000rem;
@@ -168,7 +170,7 @@ body {
 }
 
 .ss-send-email-receipt {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 1.000rem;
@@ -176,7 +178,7 @@ body {
 }
 
 .ss-password-warning {
-  font-family: "Arial";
+  //font-family: "Arial";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 1.000rem;
@@ -184,7 +186,7 @@ body {
 }
 
 .disclaimer {
-  font-family: "Arial";
+  //font-family: "Arial";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 0.850rem;
@@ -192,7 +194,7 @@ body {
 }
 
 .ss-footer-content {
-  font-family: "Arial";
+  //font-family: "Arial";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 1.000rem;
@@ -200,7 +202,7 @@ body {
 }
 
 .progress-label {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(140,140,140);
   font-weight: 400;
   font-size: 1.000rem;
@@ -252,6 +254,7 @@ input[type='text'], input:not([type]), textarea {
     z-index: 10000;
     border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD;
     display: none;
+    font-weight: 700;
 }
 .flyout-text-only{
     width: 400px;
@@ -320,7 +323,7 @@ input[type='text'], input:not([type]), textarea {
 
 
 <!--行程預覽區塊-->
-<div id="cs_float_itinerary_block" style="background-color: #BBEBF9; position: fixed; top: 6em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; overflow-y: auto; max-height: 80%;">
+<div id="cs_float_itinerary_block" style="background-color: #BBEBF9; position: fixed; top: 7em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; overflow-y: auto; max-height: 80%;">
     <span style="font-size:26px; color:#00A2CF;"><strong><span>行程費用：</span><span id="cs_price_label" style="color:#BC6596;"> 0 </span>元(NTD/人)    &nbsp;&nbsp;&nbsp;</strong></span>
     <div id="cs_rental_price_block" align="left" style="font-size:15px; display: none;"><strong><span>&nbsp;裝備租用：</span><span id="cs_rental_price_label" > 0 </span>元(NTD/人)</strong></div>
     <div><strong><span style="font-size:10px;">&nbsp;</span></strong></div>
@@ -464,7 +467,7 @@ input[type='text'], input:not([type]), textarea {
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_allwears_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (800元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護目鏡，手套</span>
+        <td><span class="ss-choice-label">護目鏡+手套</span>
             <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
             <div  class="flyout flyout-text-only" >護目鏡：雪地上反光嚴重，直視雪地接近於直視陽光。配戴滑雪專用護目鏡可以在晴天的時候保護您的眼睛不受紫外線的侵害，更可以在下雪天讓您依然擁有清晰的視力以及保護您的眼睛不受風雪的傷害。<br/><br/>
             
@@ -472,13 +475,13 @@ input[type='text'], input:not([type]), textarea {
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_goggleglove_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護臀，護膝</span>
+        <td><span class="ss-choice-label">護臀+護膝</span>
             <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
             <div  class="flyout flyout-text-only" >初學者在學習平衡身體期間，常有跌坐或是跪倒的狀況發生。為了您身體的安全以及增加學習時的安全感，我們會建議您租用專業的保護裝備。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_kneepads_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護腕，護肘</span>
+        <td><span class="ss-choice-label">護腕+護肘</span>
             <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
             <div  class="flyout flyout-text-only" >初學者在學習平衡身體期間，在跌倒時常會試圖用雙手去支撐身體，而造成手腕以及手肘的扭、挫傷。為了您身體的安全以及增加學習時的安全感，我們會建議您租用專業的保護裝備。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_elbowpads_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
