@@ -1406,9 +1406,12 @@ input[type='text'], input:not([type]), textarea {
                 text += roomTypeText + ", ";
             }
             
-            if(!this.flight && this.type < 3) {
-                text += "退機票, ";
-            }
+            if(this.type < 3)
+                if(!this.flight) {
+                    text += "退機票, ";
+                }else{
+                    text += "日本來回機票, ";
+                }
             
             if(this.goWayBus) {
                 text += "去程巴士, ";
