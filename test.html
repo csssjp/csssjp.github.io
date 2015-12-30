@@ -20,6 +20,8 @@
 <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
 <style type="text/css">
+.os_mac {font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
+
 body {
   //background-color: rgb(231,238,247);
   //background-image: url('./resource/blue-stripe-bg.png');
@@ -72,7 +74,7 @@ body {
 }
 
 body {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 1.080rem;
@@ -80,7 +82,7 @@ body {
 }
 
 .ss-record-username-message {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 1.080rem;
@@ -88,7 +90,7 @@ body {
 }
 
 .ss-form-title {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 2.460rem;
@@ -96,7 +98,7 @@ body {
 }
 
 .ss-confirmation {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 2.460rem;
@@ -104,7 +106,7 @@ body {
 }
 
 .ss-page-title, .ss-section-title {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 1.845rem;
@@ -112,7 +114,7 @@ body {
 }
 
 .ss-form-desc, .ss-page-description, .ss-section-description {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(140,140,140);
   font-weight: 400;
   font-size: 1.080rem;
@@ -120,7 +122,7 @@ body {
 }
 
 .ss-resp-content {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 1.080rem;
@@ -128,7 +130,7 @@ body {
 }
 
 .ss-q-title {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 700;
   font-size: 1.080rem;
@@ -136,7 +138,7 @@ body {
 }
 
 .ss-embeddable-object-container .ss-q-title {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 700;
   font-size: 1.845rem;
@@ -144,7 +146,7 @@ body {
 }
 
 .ss-q-help, .ss-q-time-hint {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(140,140,140);
   font-weight: 400;
   font-size: 1.000rem;
@@ -152,7 +154,7 @@ body {
 }
 
 .ss-choice-label, .video-secondary-text, .ss-gridrow-leftlabel, .ss-gridnumber, .ss-scalenumber, .ss-leftlabel, .ss-rightlabel {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 1.000rem;
@@ -160,7 +162,7 @@ body {
 }
 
 .error-message, .required-message, .ss-required-asterisk {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(196,59,29);
   font-weight: 400;
   font-size: 1.000rem;
@@ -168,7 +170,7 @@ body {
 }
 
 .ss-send-email-receipt {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 1.000rem;
@@ -176,7 +178,7 @@ body {
 }
 
 .ss-password-warning {
-  font-family: "Arial";
+  //font-family: "Arial";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 1.000rem;
@@ -184,7 +186,7 @@ body {
 }
 
 .disclaimer {
-  font-family: "Arial";
+  //font-family: "Arial";
   color: rgb(119,119,119);
   font-weight: 400;
   font-size: 0.850rem;
@@ -192,7 +194,7 @@ body {
 }
 
 .ss-footer-content {
-  font-family: "Arial";
+  //font-family: "Arial";
   color: rgb(80,80,80);
   font-weight: 400;
   font-size: 1.000rem;
@@ -200,7 +202,7 @@ body {
 }
 
 .progress-label {
-  font-family: "Roboto";
+  //font-family: "Roboto";
   color: rgb(140,140,140);
   font-weight: 400;
   font-size: 1.000rem;
@@ -246,12 +248,13 @@ input[type='text'], input:not([type]), textarea {
 
 .flyout{
     position:absolute;
-    padding: 5px;
-    background:lightyellow;
+    padding: 10px;
+    background: #BBEBF9;
     overflow: hidden;
-    z-index:10000;
+    z-index: 10000;
     border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD;
-    display:none;
+    display: none;
+    font-weight: 700;
 }
 .flyout-text-only{
     width: 400px;
@@ -320,7 +323,7 @@ input[type='text'], input:not([type]), textarea {
 
 
 <!--行程預覽區塊-->
-<div id="cs_float_itinerary_block" style="background-color: #BBEBF9; position: fixed; top: 6em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; overflow-y: auto; max-height: 80%;">
+<div id="cs_float_itinerary_block" style="background-color: #BBEBF9; position: fixed; top: 7em; right: 5em; padding: 1em; border-radius: 5px; box-shadow: 5px 5px 5px #BDBDBD; overflow-y: auto; max-height: 80%;">
     <span style="font-size:26px; color:#00A2CF;"><strong><span>行程費用：</span><span id="cs_price_label" style="color:#BC6596;"> 0 </span>元(NTD/人)    &nbsp;&nbsp;&nbsp;</strong></span>
     <div id="cs_rental_price_block" align="left" style="font-size:15px; display: none;"><strong><span>&nbsp;裝備租用：</span><span id="cs_rental_price_label" > 0 </span>元(NTD/人)</strong></div>
     <div><strong><span style="font-size:10px;">&nbsp;</span></strong></div>
@@ -365,18 +368,18 @@ input[type='text'], input:not([type]), textarea {
     <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
     <div  class="flyout" ><img src="./resource/6days.png"></div>
 </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#23458;&#35069;&#34892;&#31243;" id="group_749046174_3" role="radio" class="ss-q-radio" aria-label="&#23458;&#35069;&#34892;&#31243;" required="" aria-required="true"></span>
-    <span class="ss-choice-label">客製行程</span>
+    <span class="ss-choice-label">客製行程(未稅)</span>
     <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
     <div  class="flyout" >依"五天四夜"、"六天五夜"套裝行程為基礎做內容上的增減。<br/>
         <img src="./resource/custom.png"></div>
 </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#32020;&#28369;&#38634;&#34892;&#31243;" id="group_749046174_4" role="radio" class="ss-q-radio" aria-label="&#32020;&#28369;&#38634;&#34892;&#31243;" required="" aria-required="true"></span>
-    <span class="ss-choice-label">僅預定滑雪行程</span>
+    <span class="ss-choice-label">僅預定滑雪行程(未稅)</span>
     <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
     <div  class="flyout" >報名滑雪課程，課程內容及收費如下表。<br/>
         <img src="./resource/classonly.png"/>
     </div>
 </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.749046174" value="&#20303;&#23487;&#21152;&#20132;&#36890;" id="group_749046174_5" role="radio" class="ss-q-radio" aria-label="&#20303;&#23487;&#21152;&#20132;&#36890;" required="" aria-required="true"></span>
-    <span class="ss-choice-label">僅預定住宿與交通</span>
+    <span class="ss-choice-label">僅預定住宿與交通(未稅)</span>
     <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
     <div  class="flyout flyout-text-only" >如果您只需要我們替您個別安排住宿與交通：<br/><br/>
         
@@ -453,8 +456,9 @@ input[type='text'], input:not([type]), textarea {
     <tr>
         <td><span class="ss-choice-label">全套雪具</span>
             <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
-            <div  class="flyout flyout-text-only" >1. Snowboard, Binding, Boots<br/>
-                2. Ski, Binding, Poles, Boots</div></td>
+            <div  class="flyout flyout-text-only" >您可以有兩種選擇(1)Snowabord (2)Ski<br/><br/>
+                (1) Snowboard, Binding, Boots<br/>
+                (2) Ski, Binding, Poles, Boots</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_allgears_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (800元)</td>
     </tr>
     <tr>
@@ -464,7 +468,7 @@ input[type='text'], input:not([type]), textarea {
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_allwears_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (800元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護目鏡，手套</span>
+        <td><span class="ss-choice-label">護目鏡+手套</span>
             <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
             <div  class="flyout flyout-text-only" >護目鏡：雪地上反光嚴重，直視雪地接近於直視陽光。配戴滑雪專用護目鏡可以在晴天的時候保護您的眼睛不受紫外線的侵害，更可以在下雪天讓您依然擁有清晰的視力以及保護您的眼睛不受風雪的傷害。<br/><br/>
             
@@ -472,21 +476,27 @@ input[type='text'], input:not([type]), textarea {
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_goggleglove_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護臀，護膝</span>
+        <td><span class="ss-choice-label">護臀+護膝</span>
             <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
-            <div  class="flyout flyout-text-only" >初學者在學習平衡身體期間，常有跌坐或是跪倒的狀況發生。為了您身體的安全以及增加學習時的安全感，我們會建議您租用專業的保護裝備。</div></td>
+            <div  class="flyout flyout-text-only" >※教學課程中，我們會再三強調以及指導於雪地上活動的安全注意事項，不過依然建議您使用基本的防護配備。<br/><br/>
+                
+                初學者在學習平衡身體期間，常有跌坐或是跪倒的狀況發生。為了您身體的安全以及增加學習時的安全感，我們會建議您租用專業的保護裝備。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_kneepads_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
     </tr>
     <tr>
-        <td><span class="ss-choice-label">護腕，護肘</span>
+        <td><span class="ss-choice-label">護腕+護肘</span>
             <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
-            <div  class="flyout flyout-text-only" >初學者在學習平衡身體期間，在跌倒時常會試圖用雙手去支撐身體，而造成手腕以及手肘的扭、挫傷。為了您身體的安全以及增加學習時的安全感，我們會建議您租用專業的保護裝備。</div></td>
+            <div  class="flyout flyout-text-only" >※教學課程中，我們會再三強調以及指導於雪地上活動的安全注意事項，不過依然建議您使用基本的防護配備。<br/><br/>
+                
+                初學者在學習平衡身體期間，在跌坐時如果試圖用雙手去支撐身體，容易造成手腕以及手肘的扭、挫傷。為了您身體的安全以及增加學習時的安全感，我們會建議您租用專業的保護裝備。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_elbowpads_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (600元)</td>
     </tr>
     <tr>
         <td><span class="ss-choice-label">安全帽</span>
             <span style="color:red" class="question-mark"> <img width="12px" src="./resource/question-mark-icon.jpg" /></span>
-            <div  class="flyout flyout-text-only" >初學者在學習期間，偶爾會有突然間前撲或是後跌的狀況。為了您頭部的安全以及增加學習時的安全感，我們會建議您租用專業的安全帽。</div></td>
+            <div  class="flyout flyout-text-only" >初學者在學習期間，偶爾會有突然間前撲或是後跌的狀況。為了您頭部的安全以及增加學習時的安全感，我們會建議您租用專業的安全帽。<br/><br/>
+                
+                現在無論初學者或是各種程度的滑雪者皆開始將配戴安全帽當成是基本配備。</div></td>
         <td><input type="text"  value="0" class="ss-q-short" style="width: 20px" id="cs_helmet_text" dir="auto" aria-label="" aria-required="true" required="" title="" > 天 (300元)</td>
     </tr>
 </table>
@@ -772,9 +782,15 @@ input[type='text'], input:not([type]), textarea {
 
 <script type="text/javascript">
     /****** 新建表單步驟*******/
-    // 1. 建立 Google Form 副本 (重要，如此一來欄位 id 才會一致)
-    // 2. 修改成新的 form action 位置
-    // 3. 必要的資源檔為 base.csv
+    // 1. 將此 script 區塊貼到新表單 form element 後面
+    // 2. 表頭加入以下三個 javascript 元件
+    //  link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/eggplant/jquery-ui.css"
+    //  script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
+    //  script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"
+    // 3. 將 html element id 配對至 javascript element, 參照 UI Elements 區塊
+    // 4. 加入 cs_price_label, cs_itinerary_block 的 Html Code
+    // 5. 針對 cs_singleroom_block, cs_group_special_msg 建立 html 區塊 element, 條件隱藏會用到
+    // 6. 必要的資源檔為 base.csv
     /****** 新建表單步驟 ******/
     
     /****** Global Properties ******/
@@ -1390,9 +1406,12 @@ input[type='text'], input:not([type]), textarea {
                 text += roomTypeText + ", ";
             }
             
-            if(!this.flight && this.type < 3) {
-                text += "退機票, ";
-            }
+            if(this.type < 3)
+                if(!this.flight) {
+                    text += "退機票, ";
+                }else{
+                    text += "日本來回機票, ";
+                }
             
             if(this.goWayBus) {
                 text += "去程巴士, ";
@@ -1885,7 +1904,7 @@ input[type='text'], input:not([type]), textarea {
         var tmpDiv = document.createElement("div");
         
         // custom buttons
-        tmpDiv.appendChild(createAddRemoveFlightButtonDiv((_itinerary.dates.length > 4), _itinerary.flight));
+        tmpDiv.appendChild(createAddRemoveFlightButtonDiv((_itinerary.dates.length > 3), _itinerary.flight));
         
         var totalDays = _itinerary.dates.length;
         
