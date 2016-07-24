@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>無限界全客製行程2017</title>
+    <!-- <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" /> -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="main">
+        <div id="site_content">
+          <div id="sidebar_container">
+            <div class="sidebar">
+              <div style="font-size:16px; margin-bottom:10px;">
+                <span>出發日期</span>
+                <input type="text" id="set_off_date_picker" style="height: 20px; width: 90px; font-size: 15px;"></input>
+              </div>
+              <!-- <div style="font-size:16px; margin-bottom:10px;">
+                <span>計畫天數</span>
+                <input type="number" id="day_field" style="height: 20px; width: 40px; font-size: 18px;"  min="1" max="30" value="1" ></input>
+                <span>天</span>
+              </div> -->
+              <!-- <div style="font-size:16px; margin-bottom:10px;">
+                <span>報名人數</span>
+                <input type="number" id="people_field" style="height: 20px; width: 40px; font-size: 18px;"  min="1" max="99" value="1" ></input>
+                <span>人</span>
+              </div> -->
+              <div style="text-align: center;">
+                <input id="update_btn" type="button" style="width: 120px; " value="更換日期" class="btn" ></input>
+              </div>
+            </div>
+            <!-- <div class="sidebar">
+            </div> -->
+          </div>
+          <div id="content">
+            <div id="itinerary_div">
+              <div>
+                <input id="add_a_day_btn" type="button"  value="增加一天" class="daybtn" onclick="addADay();" ></input>
+                <input id="remove_a_day_btn" type="button"  value="減少一天" class="daybtn" onclick="removeADay();" ></input>
+              </div>
+              <div id="itinerary_days">
+
+              </div>
+              <div>
+                <div id="others">
+                  <table border="0" style="width: 100%; border-spacing: 0px;"><tr>
+                    <td valign="top" style="background-color: rgb(207, 96, 0);" class="dayLabel">其他</td>
+                    <td valign="top" class="dayContent">
+                      <div class="dayDetails" id="others_details"></div>
+                    </td>
+                    <td valign='top' class='dayContent' style='width: 80px;' >
+                      <input type='button' class='addItemBtn' onclick='showAddItemWindowSpecial("others");' value='加入'/>
+                    </td>
+                  </tr></table>
+                </div>
+                <div class="priceTag">
+                  行程費用：<br/><br/><span style='float:right;'><span id="total_price_text" class="priceText"></span> JPY</span>
+                  <!-- <br/>平均每人：<span id="person_price_text" class="priceText"></span> JPY -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <p>developed by Earou</p>
+        </footer>
+      </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/dojo.js"></script>
+    <script src="js/present.js"></script>
+    <script src="js/editor.js"></script>
+    <script>
+      function createItinerary() {
+        // if(!_itinerary) {
+        _itinerary = new Itinerary();
+        _itinerary.firstDate = new Date($('#set_off_date_picker').val());
+        // _itinerary.numOfDay =  $('#day_field').val();
+        _itinerary.people = 2;// $('#people_field').val();
+        loadDefault(_itinerary);
+        // }
+        updateItinerary();
+      }
+
+      function updateItinerary() {
+        updatePrice();
+        updateOthers();
+        updateDays();
+        applyTooltipEffect();
+      }
+
+      function updateDays() {
+        var daysHtml = "";
+        for(var i = 0; i<_itinerary.days.length;i++) {
+           daysHtml += presentDateInDiv('days_'+i, _itinerary.days[i], (i+1));
+        }
+        $('#itinerary_days').html(daysHtml);
+      }
+
+      function updatePrice() {
+        var priceTotal = _itinerary.calPrice();
+        var pricePerson = priceTotal / _itinerary.people;
+        $('#total_price_text').html(priceTotal);
+        $('#person_price_text').html(pricePerson);
+      }
+
+      function updateOthers() {
+        $('#others_details').html(presentOthers('others', _itinerary));
+      }
+
+
+
+      function pageInit() {
+        $(function() {
+          $( '#set_off_date_picker' ).datepicker({
+             minDate: 0,
+             defaultDate: 0,
+             dateFormat: 'yy/mm/dd'
+          });
+          $( '#set_off_date_picker' ).datepicker('setDate', new Date());
+
+          $('#people_field').on("change", function() {
+              var val = Math.abs(parseInt(this.value, 10) || 1);
+              this.value = val > 99 ? 99 : val;
+          });
+
+          $('#update_btn').click(createItinerary);
+
+          loadBase();
+
+          createItinerary();
+        });
+      }
+
+      pageInit();
+    </script>
+  </body>
+</html>
